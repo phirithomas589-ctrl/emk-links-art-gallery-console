@@ -51,6 +51,24 @@ def card(label_text, heading_text, copy, accent=acid, width=56 * mm, height=42 *
 
 def footer(canvas, document):
     canvas.saveState()
+    canvas.setFillColor(paper)
+    canvas.rect(0, 0, PAGE[0], PAGE[1], fill=1, stroke=0)
+    canvas.setStrokeColor(colors.Color(24 / 255, 37 / 255, 31 / 255, alpha=0.06))
+    canvas.setLineWidth(0.35)
+    for x in range(0, int(PAGE[0]), int(12 * mm)):
+        canvas.line(x, 0, x, PAGE[1])
+    for y in range(0, int(PAGE[1]), int(12 * mm)):
+        canvas.line(0, y, PAGE[0], y)
+    canvas.setFillColor(acid)
+    canvas.rect(PAGE[0] - 42 * mm, PAGE[1] - 8 * mm, 42 * mm, 8 * mm, fill=1, stroke=0)
+    canvas.setFillColor(sage)
+    canvas.saveState()
+    canvas.translate(PAGE[0] - 24 * mm, PAGE[1] - 48 * mm)
+    canvas.rotate(32)
+    canvas.rect(-4 * mm, -28 * mm, 8 * mm, 56 * mm, fill=1, stroke=0)
+    canvas.restoreState()
+    canvas.setFillColor(rust)
+    canvas.rect(18 * mm, PAGE[1] - 4 * mm, 18 * mm, 4 * mm, fill=1, stroke=0)
     canvas.setFillColor(muted)
     canvas.setFont("Courier", 7.5)
     canvas.drawString(24 * mm, 11 * mm, "EMK LINKS / ART GALLERY CONSOLE")
