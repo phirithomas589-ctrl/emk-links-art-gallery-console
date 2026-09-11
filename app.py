@@ -205,6 +205,10 @@ st.markdown(
     .hero-note { color: var(--muted); font-size: 1rem; max-width: 560px; }
     .resolution-note { background: #edf4d8; border-left: 4px solid var(--acid); color: var(--ink); padding: .8rem 1rem; }
     .resolution-note strong { font-family: 'DM Mono', monospace; font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; }
+    .insight-panel { background: rgba(255,253,248,.8); border: 1px solid var(--line); border-radius: 6px; min-height: 170px; padding: 1rem; }
+    .insight-label { color: var(--rust); font-family: 'DM Mono', monospace; font-size: .68rem; letter-spacing: .1em; text-transform: uppercase; }
+    .insight-panel h4 { color: var(--ink); font-family: 'Fraunces', serif; font-size: 1.15rem; margin: .45rem 0 .55rem; }
+    .insight-panel p { color: #4e5c54; font-size: .86rem; line-height: 1.45; margin: 0; }
     .count-mark { font-family: 'DM Mono', monospace; font-size: .75rem; color: var(--muted); padding-top: .9rem; text-align: right; }
     .art-card { background: rgba(255,253,248,.94); border: 1px solid var(--line); border-radius: 7px; overflow: hidden; margin-bottom: 1rem; box-shadow: 0 12px 25px rgba(43,60,49,.05); }
     .art-card img { display: block; width: 100%; height: 215px; object-fit: cover; }
@@ -412,6 +416,36 @@ operations_tabs = st.tabs(["Business intelligence", "Infrastructure", "Backup ti
 
 with operations_tabs[0]:
     st.markdown("### Catalog intelligence")
+    catalog = st.session_state.artworks
+    total_items = len(catalog)
+    review_count = sum(item["status"] == "Review" for item in catalog)
+    draft_count = sum(item["status"] == "Draft" for item in catalog)
+    live_count = sum(item["status"] == "Live" for item in catalog)
+    checked_count = len(st.session_state.link_checks)
+    failed_count = sum(state[0] != "Online" for state in st.session_state.link_checks.values())
+    live_coverage = live_count / max(total_items, 1) * 100
+    if failed_count:
+        problem = "Audience traffic may be leaking through broken links."
+        insight = f"{failed_count} of {checked_count} checked links need attention, so visitors may not reach the intended artwork or artist page."
+        action = "Repair failed destinations first, then re-check every link before promoting the collection."
+    elif review_count or draft_count:
+        problem = "The collection is growing faster than it is being approved."
+        insight = f"{review_count} works are in review and {draft_count} are drafts; {live_coverage:.0f}% of the catalog is currently marked live."
+        action = "Assign a curator review sprint, approve the strongest works, and publish a focused collection."
+    else:
+        problem = "The catalog is healthy, but discovery can still be improved."
+        insight = f"All {total_items} indexed works are marked live and no checked links are failing."
+        action = "Use the category and artist mix to plan the next campaign, feature, or gallery update."
+    analysis_cols = st.columns(4)
+    analysis = [
+        ("Business problem", problem),
+        ("Data", f"{total_items} works · {live_count} live · {review_count} review · {draft_count} draft · {failed_count} link failures"),
+        ("Analysis / insight", insight),
+        ("Business action", action),
+    ]
+    for column, (label, copy) in zip(analysis_cols, analysis):
+        with column:
+            st.markdown(f'<div class="insight-panel"><div class="insight-label">{label}</div><h4>{label}</h4><p>{copy}</p></div>', unsafe_allow_html=True)
     bi_cols = st.columns(4)
     bi_metrics = [
         ("Catalog size", len(st.session_state.artworks), "works indexed"),
