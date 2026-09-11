@@ -203,6 +203,8 @@ st.markdown(
     .eyebrow { color: var(--rust); font-family: 'DM Mono', monospace; font-size: .7rem; letter-spacing: .14em; text-transform: uppercase; }
     .subtle { color: var(--muted); }
     .hero-note { color: var(--muted); font-size: 1rem; max-width: 560px; }
+    .resolution-note { background: #edf4d8; border-left: 4px solid var(--acid); color: var(--ink); padding: .8rem 1rem; }
+    .resolution-note strong { font-family: 'DM Mono', monospace; font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; }
     .count-mark { font-family: 'DM Mono', monospace; font-size: .75rem; color: var(--muted); padding-top: .9rem; text-align: right; }
     .art-card { background: rgba(255,253,248,.94); border: 1px solid var(--line); border-radius: 7px; overflow: hidden; margin-bottom: 1rem; box-shadow: 0 12px 25px rgba(43,60,49,.05); }
     .art-card img { display: block; width: 100%; height: 215px; object-fit: cover; }
@@ -402,6 +404,10 @@ with st.expander("Catalog data"):
 st.divider()
 st.markdown('<div class="eyebrow">EMK / OPERATIONS / 02</div>', unsafe_allow_html=True)
 st.markdown("## Gallery operations")
+st.markdown(
+    '<div class="resolution-note"><strong>Resolved: curator access</strong><br>The console previously had a mismatch between its documented login and its fallback configuration. The credentials are now aligned, so authorized curators can reliably unlock catalog management and gallery health tools.</div>',
+    unsafe_allow_html=True,
+)
 operations_tabs = st.tabs(["Business intelligence", "Infrastructure", "Backup timeline"])
 
 with operations_tabs[0]:
