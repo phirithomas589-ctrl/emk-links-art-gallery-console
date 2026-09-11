@@ -205,7 +205,7 @@ st.markdown(
     .hero-note { color: var(--muted); font-size: 1rem; max-width: 560px; }
     .resolution-note { background: #edf4d8; border-left: 4px solid var(--acid); color: var(--ink); padding: .8rem 1rem; }
     .resolution-note strong { font-family: 'DM Mono', monospace; font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; }
-    .insight-panel { background: rgba(255,253,248,.8); border: 1px solid var(--line); border-radius: 6px; min-height: 170px; padding: 1rem; }
+    .insight-panel { background: rgba(255,253,248,.86); border: 1px solid var(--line); border-radius: 6px; min-height: 176px; padding: 1.05rem; box-shadow: 0 8px 18px rgba(43,60,49,.04); }
     .insight-label { color: var(--rust); font-family: 'DM Mono', monospace; font-size: .68rem; letter-spacing: .1em; text-transform: uppercase; }
     .insight-panel h4 { color: var(--ink); font-family: 'Fraunces', serif; font-size: 1.15rem; margin: .45rem 0 .55rem; }
     .insight-panel p { color: #4e5c54; font-size: .86rem; line-height: 1.45; margin: 0; }
@@ -416,6 +416,7 @@ operations_tabs = st.tabs(["Business intelligence", "Infrastructure", "Backup ti
 
 with operations_tabs[0]:
     st.markdown("### Catalog intelligence")
+    st.caption("Decision brief · translate collection health into the next curatorial and marketing move")
     catalog = st.session_state.artworks
     total_items = len(catalog)
     review_count = sum(item["status"] == "Review" for item in catalog)
@@ -438,14 +439,14 @@ with operations_tabs[0]:
         action = "Use the category and artist mix to plan the next campaign, feature, or gallery update."
     analysis_cols = st.columns(4)
     analysis = [
-        ("Business problem", problem),
-        ("Data", f"{total_items} works · {live_count} live · {review_count} review · {draft_count} draft · {failed_count} link failures"),
-        ("Analysis / insight", insight),
-        ("Business action", action),
+        ("01 / Business problem", "What needs attention", problem),
+        ("02 / Data", "Evidence in the catalog", f"{total_items} works · {live_count} live · {review_count} review · {draft_count} draft · {failed_count} link failures"),
+        ("03 / Analysis / insight", "What the numbers mean", insight),
+        ("04 / Business action", "Recommended next move", action),
     ]
-    for column, (label, copy) in zip(analysis_cols, analysis):
+    for column, (label, title, copy) in zip(analysis_cols, analysis):
         with column:
-            st.markdown(f'<div class="insight-panel"><div class="insight-label">{label}</div><h4>{label}</h4><p>{copy}</p></div>', unsafe_allow_html=True)
+            st.markdown(f'<div class="insight-panel"><div class="insight-label">{label}</div><h4>{title}</h4><p>{copy}</p></div>', unsafe_allow_html=True)
     bi_cols = st.columns(4)
     bi_metrics = [
         ("Catalog size", len(st.session_state.artworks), "works indexed"),
