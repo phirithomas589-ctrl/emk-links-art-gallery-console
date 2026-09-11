@@ -180,7 +180,7 @@ def configured_control_room() -> tuple[str, str]:
         credentials = st.secrets.get("control_room", {})
     except Exception:
         credentials = {}
-    return str(credentials.get("username", "admin")), str(credentials.get("password", "bootlegger"))
+    return str(credentials.get("username", "admin")), str(credentials.get("password", "emk-gallery"))
 
 
 def valid_credentials(username: str, password: str) -> bool:
