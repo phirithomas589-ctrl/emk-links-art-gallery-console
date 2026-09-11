@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>EMK Links / Art Gallery Console</title>
+<style>
+@page { size: A4 landscape; margin: 0; }
+:root { --ink:#18251f; --muted:#69766e; --paper:#f4f1e9; --panel:#fffdf8; --line:#d9ded4; --acid:#d8ef70; --sage:#cfe4d3; --rust:#a94f32; }
+* { box-sizing:border-box; }
+body { margin:0; color:var(--ink); background:#dfe5dc; font-family:Georgia, 'Times New Roman', serif; }
+.slide { width:297mm; height:210mm; padding:22mm 24mm; background:var(--paper); page-break-after:always; position:relative; overflow:hidden; }
+.slide::before { content:''; position:absolute; inset:0; background-image:linear-gradient(rgba(24,37,31,.035) 1px, transparent 1px),linear-gradient(90deg, rgba(24,37,31,.035) 1px, transparent 1px); background-size:12mm 12mm; pointer-events:none; }
+.content { position:relative; z-index:1; }
+.kicker { color:var(--rust); font:500 10pt 'Courier New', monospace; letter-spacing:.14em; text-transform:uppercase; }
+h1 { font-size:46pt; line-height:.98; font-weight:400; max-width:205mm; margin:22mm 0 9mm; }
+h2 { font-size:28pt; line-height:1.05; font-weight:400; margin:8mm 0 10mm; }
+h3 { font-size:17pt; font-weight:400; margin:0 0 4mm; }
+p { font-size:13pt; line-height:1.45; color:#4e5c54; max-width:220mm; }
+.subtitle { font-size:17pt; color:var(--muted); max-width:170mm; }
+.footer { position:absolute; left:24mm; right:24mm; bottom:12mm; display:flex; justify-content:space-between; color:var(--muted); font:9pt 'Courier New', monospace; }
+.grid { display:grid; grid-template-columns:repeat(3,1fr); gap:6mm; }
+.grid.four { grid-template-columns:repeat(4,1fr); }
+.card { min-height:62mm; padding:7mm; background:rgba(255,253,248,.9); border:1px solid var(--line); border-top:4px solid var(--acid); border-radius:2mm; }
+.card.rust { border-top-color:var(--rust); }
+.card.sage { border-top-color:#8aad7f; }
+.label { color:var(--rust); font:500 9pt 'Courier New', monospace; letter-spacing:.08em; text-transform:uppercase; }
+.card p { font-size:11.5pt; margin:0; }
+.metric { font:26pt 'Courier New', monospace; margin:6mm 0 2mm; }
+.metric-label { color:var(--muted); font:10pt 'Courier New', monospace; text-transform:uppercase; letter-spacing:.05em; }
+.flow { display:grid; grid-template-columns:1fr 1fr 1fr 1fr; gap:4mm; align-items:stretch; }
+.flow .card { min-height:68mm; }
+.action { background:var(--ink); color:white; padding:8mm; border-radius:2mm; }
+.action h3, .action p { color:white; }
+.action p { color:#dce8df; }
+.callout { margin-top:10mm; padding:7mm 9mm; border-left:5px solid var(--acid); background:#edf4d8; font-size:16pt; line-height:1.3; max-width:230mm; }
+.link { font:14pt 'Courier New', monospace; color:var(--rust); word-break:break-all; }
+.small { font-size:10pt; }
+</style>
+</head>
+<body>
+<section class="slide"><div class="content"><div class="kicker">EMK / presentation brief / 01</div><h1>The link gallery</h1><p class="subtitle">A professional Streamlit console for turning EMK artwork links into a clear, searchable, measurable gallery workflow.</p><div class="callout">From scattered links to a curated collection with visible business priorities.</div></div><div class="footer"><span>EMK LINKS / ART GALLERY CONSOLE</span><span>2026</span></div></section>
+<section class="slide"><div class="content"><div class="kicker">The business challenge</div><h2>Curated work deserves a reliable path to discovery.</h2><div class="grid"><div class="card rust"><div class="label">Problem</div><h3>Links are hard to manage</h3><p>Artwork, artist, category, image, and destination data can become fragmented across messages, documents, and social channels.</p></div><div class="card"><div class="label">Risk</div><h3>Audience attention leaks</h3><p>Broken or unreviewed destinations interrupt the visitor journey and weaken campaign confidence.</p></div><div class="card sage"><div class="label">Opportunity</div><h3>Make the collection actionable</h3><p>One shared console can connect curation, link health, catalog intelligence, and the next marketing move.</p></div></div></div><div class="footer"><span>BUSINESS CONTEXT</span><span>02</span></div></section>
+<section class="slide"><div class="content"><div class="kicker">The solution</div><h2>One console for the collection and the decision.</h2><div class="grid four"><div class="card"><div class="label">01 / Browse</div><h3>Visual catalog</h3><p>Artwork cards make the collection easy to scan by title, artist, category, and status.</p></div><div class="card"><div class="label">02 / Curate</div><h3>Protected controls</h3><p>Curators can add, import, export, review, and restore catalog records from the control room.</p></div><div class="card"><div class="label">03 / Measure</div><h3>Business intelligence</h3><p>Catalog health becomes visible through live coverage, review queue, link checks, and category mix.</p></div><div class="card"><div class="label">04 / Act</div><h3>Operational response</h3><p>Every insight ends with a recommended action for curation, promotion, or link repair.</p></div></div></div><div class="footer"><span>PRODUCT OVERVIEW</span><span>03</span></div></section>
+<section class="slide"><div class="content"><div class="kicker">Data to action</div><h2>The decision brief makes the numbers useful.</h2><div class="flow"><div class="card rust"><div class="label">01 / Business problem</div><h3>What needs attention?</h3><p>Identify broken links, review backlog, or a discovery gap.</p></div><div class="card"><div class="label">02 / Data</div><h3>What is happening?</h3><p>Use catalog totals, live status, drafts, reviews, and link checks.</p></div><div class="card sage"><div class="label">03 / Insight</div><h3>What does it mean?</h3><p>Translate the evidence into audience, curation, or campaign impact.</p></div><div class="action"><div class="label">04 / Business action</div><h3>What happens next?</h3><p>Repair, review, publish, feature, or plan the next collection move.</p></div></div><div class="callout">This is the marketing engineer advantage: operational data becomes a practical growth decision.</div></div><div class="footer"><span>ANALYSIS FRAMEWORK</span><span>04</span></div></section>
+<section class="slide"><div class="content"><div class="kicker">What stakeholders can see</div><h2>A clearer operating picture.</h2><div class="grid four"><div class="card"><div class="metric">06</div><div class="metric-label">Works indexed</div><p>Every artwork has a visible place in the collection.</p></div><div class="card"><div class="metric">04</div><div class="metric-label">Live links</div><p>Published destinations are separated from review and draft work.</p></div><div class="card rust"><div class="metric">01</div><div class="metric-label">Review queue</div><p>Curators can see what needs attention before promotion.</p></div><div class="card sage"><div class="metric">06</div><div class="metric-label">Artists / studios</div><p>The collection’s contributor mix is visible at a glance.</p></div></div><p style="margin-top:14mm">The live numbers update as the catalog changes, so the dashboard can support weekly curation reviews, campaign planning, and link-quality checks.</p></div><div class="footer"><span>EXECUTIVE VIEW</span><span>05</span></div></section>
+<section class="slide"><div class="content"><div class="kicker">Recommended operating rhythm</div><h2>Use the console as a lightweight growth system.</h2><div class="grid"><div class="card"><div class="label">Weekly</div><h3>Curate the queue</h3><p>Review draft and review items, confirm destinations, and select the strongest works for the next feature.</p></div><div class="card sage"><div class="label">Before campaigns</div><h3>Check the journey</h3><p>Run link checks, repair failed destinations, and confirm that every promoted work reaches the intended page.</p></div><div class="card rust"><div class="label">Monthly</div><h3>Read the mix</h3><p>Use categories, artists, status, and year span to shape programming, storytelling, and audience outreach.</p></div></div><div class="callout">Recommended next move: complete the review queue, validate every public destination, then publish a focused EMK collection.</div></div><div class="footer"><span>BUSINESS ACTION</span><span>06</span></div></section>
+<section class="slide"><div class="content"><div class="kicker">Live demo</div><h2>EMK Links / Art Gallery Console</h2><p class="subtitle">Open the deployed console to browse the gallery and demonstrate the decision brief.</p><p class="link">https://emk-links-art-gallery-console-yq2mayvjbdiappem9wjnjf.streamlit.app/?embed=true</p><div class="grid" style="margin-top:12mm"><div class="card"><div class="label">Visitor access</div><h3>Public gallery</h3><p>The embed URL opens the gallery directly for visitors and stakeholders.</p></div><div class="card rust"><div class="label">Curator access</div><h3>Control room</h3><p>Authorized users can unlock catalog management and operational tools.</p></div><div class="card sage"><div class="label">Outcome</div><h3>From insight to action</h3><p>A shared source of truth for art links, collection health, and marketing decisions.</p></div></div></div><div class="footer"><span>EMK LINKS / ART GALLERY CONSOLE</span><span>07</span></div></section>
+</body>
+</html>
