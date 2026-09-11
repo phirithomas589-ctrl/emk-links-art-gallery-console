@@ -11,6 +11,14 @@ pip install -r requirements.txt
 streamlit run app.py
 ```
 
+## Visitor link
+
+Use the public embed URL when sharing the gallery with visitors:
+
+https://emk-links-art-gallery-console-yq2mayvjbdiappem9wjnjf.streamlit.app/?embed=true
+
+The `embed=true` link opens the gallery directly and avoids the Streamlit Cloud dashboard redirect.
+
 The initial catalog includes sample entries and public image references so the interface is immediately visible. Use the sidebar form to add real EMK links and image URLs.
 
 The catalog is saved locally in `catalog.json` after each addition. The sidebar also supports JSON export/import and a live HEAD-request check for every catalog link. Replace the sample links with your real EMK URLs before publishing the app.
